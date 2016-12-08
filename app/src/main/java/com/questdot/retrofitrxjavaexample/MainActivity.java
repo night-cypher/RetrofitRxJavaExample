@@ -14,33 +14,31 @@ import rx.schedulers.Schedulers;
 public class MainActivity extends AppCompatActivity {
 
     RetrofitManager retrofitManager;
-    private TextView txtID;
     private TextView txtName;
-    private TextView txtPrice;
-    private TextView txtTag;
+    private TextView txtStatus;
+    private TextView txtTalent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        txtID = (TextView) findViewById(R.id.txtID);
         txtName = (TextView) findViewById(R.id.txtName);
-        txtPrice = (TextView) findViewById(R.id.txtPrice);
-        txtTag = (TextView) findViewById(R.id.txtTag);
+        txtStatus = (TextView) findViewById(R.id.txtStatus);
+        txtTalent = (TextView) findViewById(R.id.txtTalent);
 
         retrofitManager = new RetrofitManager();
 
 
-        getDoor();
+        getProfile();
     }
 
-    private void getDoor(){
+    private void getProfile(){
 
         Subscription subscription = retrofitManager.getDoorService().postRawJson()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe(new Subscriber<Response<DoorResponse>>() {
+                .subscribe(new Subscriber<Response<ProfileResponse>>() {
 
 
                     @Override
@@ -54,14 +52,15 @@ public class MainActivity extends AppCompatActivity {
                         }
 
                     @Override
-                    public void onNext(Response<DoorResponse> doorResponseResponse) {
+                    public void onNext(Response<ProfileResponse> profileResponseResponse) {
 
 
-                        txtID.setText(doorResponseResponse.body().getId().toString());
-                        txtName.setText(doorResponseResponse.body().getName().toString());
-                        txtPrice.setText(doorResponseResponse.body().getPrice().toString());
+                        txtName.setText(profileResponseResponse.body().getName().toString());
 
-                        txtTag.setText(doorResponseResponse.body().getTags().get(0).toString()+ doorResponseResponse.body().getTags().get(1).toString());
+                        txtStatus.setText(profileResponseResponse.body().getStatus().toString());
+                        txtTalent.setText(profileResponseResponse.body().getTalent().toString());
+
+
 
                     }
 

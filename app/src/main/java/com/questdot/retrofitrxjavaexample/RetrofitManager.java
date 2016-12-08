@@ -10,10 +10,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitManager {
 
-    private DoorServices doorServices;
+    private ProfileServices profileServices;
 
-    public DoorServices getDoorService() {
-        if (doorServices == null) {
+    public ProfileServices getDoorService() {
+        if (profileServices == null) {
 
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl("http://www.mocky.io/")
@@ -21,8 +21,8 @@ public class RetrofitManager {
                     .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                     .build();
 
-            doorServices = retrofit.create(DoorServices.class);
+            profileServices = retrofit.create(ProfileServices.class);
         }
-        return doorServices;
+        return profileServices;
     }
 }

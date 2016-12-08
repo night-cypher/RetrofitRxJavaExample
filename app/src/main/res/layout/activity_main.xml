@@ -8,40 +8,41 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.questdot.retrofitexample.MainActivity">
+    tools:context="com.questdot.retrofitrxjavaexample.MainActivity">
 
     <TextView
+        android:text="Retrofit + RxJava"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ID"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:id="@+id/txtID" />
+        android:layout_marginBottom="92dp" />
+
+    <TextView
+        android:text="Talent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtTalent"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/txtName"
+        android:layout_alignStart="@+id/txtName" />
+
+    <TextView
+        android:text="Status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtStatus"
+        android:layout_above="@+id/txtTalent"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="33dp" />
 
     <TextView
         android:text="Name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtID"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="56dp"
-        android:id="@+id/txtName" />
-
-    <TextView
-        android:text="Price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txtName"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:id="@+id/txtPrice" />
-
-    <TextView
-        android:text="Tags"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txtPrice"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="109dp"
-        android:id="@+id/txtTag" />
+        android:id="@+id/txtName"
+        android:layout_alignBottom="@+id/txtStatus"
+        android:layout_alignLeft="@+id/txtStatus"
+        android:layout_alignStart="@+id/txtStatus"
+        android:layout_marginBottom="40dp" />
 </RelativeLayout>
